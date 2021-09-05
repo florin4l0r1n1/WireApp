@@ -12,7 +12,9 @@ class Navigationbar extends StatelessWidget {
     return PersistentTabView(
       context,
       screens: _buildScreens(),
-      items: _navBarItems(),
+      items: _navBarItems(context),
+      navBarStyle: NavBarStyle.style3,
+      backgroundColor: Theme.of(context).primaryColor,
     );
   }
 
@@ -20,12 +22,19 @@ class Navigationbar extends StatelessWidget {
     return [ChatScreen(), ContactsScreen(), Settingsscreen()];
   }
 
-  List<PersistentBottomNavBarItem> _navBarItems() {
+  List<PersistentBottomNavBarItem> _navBarItems(BuildContext context) {
     return [
-      PersistentBottomNavBarItem(icon: Icon(Icons.chat_outlined)),
-      PersistentBottomNavBarItem(icon: Icon(Icons.contacts_outlined)),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.settings_applications_outlined)),
+          icon: Icon(
+            Icons.chat_outlined,
+          ),
+          activeColorPrimary: Theme.of(context).buttonColor),
+      PersistentBottomNavBarItem(
+          icon: Icon(Icons.contacts_outlined),
+          activeColorPrimary: Theme.of(context).buttonColor),
+      PersistentBottomNavBarItem(
+          icon: Icon(Icons.settings_applications_outlined),
+          activeColorPrimary: Theme.of(context).buttonColor),
     ];
   }
 }
