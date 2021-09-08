@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "133389695958",
+    "firebase_url": "https://wireapp-ed879-default-rtdb.firebaseio.com",
+    "project_id": "wireapp-ed879",
+    "storage_bucket": "wireapp-ed879.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133389695958:android:065d9764e1d99041814277",
+        "android_client_info": {
+          "package_name": "com.example.news"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133389695958-s3cj299hqfk7bmg820tgr4janpalnjv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOMUj1plfz8wPn_C9Bu3OYSiecJci_xvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133389695958-s3cj299hqfk7bmg820tgr4janpalnjv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133389695958:android:e34bb2854ed0fcc1814277",
+        "android_client_info": {
+          "package_name": "com.example.wire_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133389695958-s3cj299hqfk7bmg820tgr4janpalnjv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOMUj1plfz8wPn_C9Bu3OYSiecJci_xvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133389695958-s3cj299hqfk7bmg820tgr4janpalnjv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
