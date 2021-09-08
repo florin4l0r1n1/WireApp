@@ -4,8 +4,8 @@ import '../bloc/user_bloc.dart';
 export '../bloc/user_bloc.dart';
 
 class UserProvider extends InheritedWidget {
-  UserBloc userBloc;
-  UserProvider({Key? key, Widget? child})
+ final UserBloc userBloc;
+  UserProvider({Key? key, Widget child})
       : userBloc = UserBloc(),
         super(key: key, child: child);
 
