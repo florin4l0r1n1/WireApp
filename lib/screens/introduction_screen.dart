@@ -1,19 +1,40 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:intro_views_flutter/intro_views_flutter.dart';
 
+import 'chat_screen.dart';
+
 class IntroductionScreen extends StatelessWidget {
+  final pages = [
+    PageViewModel(
+        pageColor: Colors.black,
+        title: Text(
+          'Page1',
+          style: TextStyle(color: Colors.white),
+        )),
+    PageViewModel(
+        pageColor: Colors.black,
+        title: Text(
+          'Page2',
+          style: TextStyle(color: Colors.white),
+        )),
+    PageViewModel(
+        pageColor: Colors.black,
+        title: Text(
+          'Page3',
+          style: TextStyle(color: Colors.white),
+        )),
+  ];
   Widget build(BuildContext context) {
-    return _introductionScreens();
+    return Builder(builder: (context) => _introScreen());
   }
 
-  Widget _introductionScreens() {
-    final screens = [
-      PageViewModel(
-          pageColor: const Color(0xFF03A9F4), body: Text(' pagina 1 slider')),
-      PageViewModel(
-          pageColor: const Color(0xFF8BC34A), body: Text(' pagina 2 slider')),
-      PageViewModel(
-          pageColor: const Color(0x9F93A1F4), body: Text(' pagina 3 slider')),
-    ];
+  Widget _introScreen() {
+    return IntroViewsFlutter(
+      pages,
+      showBackButton: true,
+      showNextButton: true,
+      showSkipButton: true,
+    );
   }
 }

@@ -30,7 +30,7 @@ class Navigationbar extends StatelessWidget {
           ),
           activeColorPrimary: Theme.of(context).buttonColor),
       PersistentBottomNavBarItem(
-          icon: Icon(Icons.contacts_outlined),
+          icon: Icon(Icons.map_outlined),
           activeColorPrimary: Theme.of(context).buttonColor),
       PersistentBottomNavBarItem(
           icon: Icon(Icons.settings_applications_outlined),
