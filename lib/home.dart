@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'widgets/navigation_bar.dart';
-// import './screens/introduction_screen.dart';
+import 'widgets/navigation_bar.dart';
+import './screens/introduction_screen.dart';
 import './screens/log_in_screen.dart';
+import './screens/sign_up_screen.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -19,10 +20,17 @@ class MyApp extends StatelessWidget {
             buttonColor: Colors.blueGrey[700],
             accentColorBrightness: Brightness.dark),
         home: Scaffold(
-          body: LogInScreen(),
-        )
-
+          body: IntroductionScreen()
+          // SignUpScreen()
+          //  Navigationbar()
+          // LogInScreen(),
+          ,
+        ),
         // isNewUser ? Navigationbar() : IntroductionScreen()
-        );
+
+        routes: <String, WidgetBuilder>{
+          '/LogIn': (BuildContext context) => LogInScreen(),
+          '/SignUp': (BuildContext context) => SignUpScreen()
+        });
   }
 }
