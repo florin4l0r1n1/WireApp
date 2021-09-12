@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    bool isNewUser = false;
+    // bool isNewUser = false;
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -20,6 +20,8 @@ class MyApp extends StatelessWidget {
             buttonColor: Colors.blueGrey[700],
             accentColorBrightness: Brightness.dark),
         home: Scaffold(
+          // if user == null introduction screen and signUp
+          // else LogInscreen or GhatScreen
           body: IntroductionScreen()
           // SignUpScreen()
           //  Navigationbar()
@@ -30,7 +32,8 @@ class MyApp extends StatelessWidget {
 
         routes: <String, WidgetBuilder>{
           '/LogIn': (BuildContext context) => LogInScreen(),
-          '/SignUp': (BuildContext context) => SignUpScreen()
+          '/SignUp': (BuildContext context) => SignUpScreen(),
+          '/MainScreen': (BuildContext context) => Navigationbar()
         });
   }
 }

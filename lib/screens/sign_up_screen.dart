@@ -2,26 +2,36 @@ import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _emailField(),
-          SizedBox(height: 10),
-          _passwordField1(),
-          SizedBox(height: 10),
-          _passwordField2(),
-          SizedBox(height: 10),
-          _signUpButton(context)
-        ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _logoImage(),
+              SizedBox(height: 10),
+              _emailField(),
+              SizedBox(height: 10),
+              _passwordField1(),
+              SizedBox(height: 10),
+              _passwordField2(),
+              SizedBox(height: 10),
+              _signUpButton(context)
+            ],
+          ),
+        ),
       ),
     );
   }
 
   Widget _logoImage() {
-    // return Image.asset();
+    return Container(
+      width: 200,
+      height: 200,
+      child: Image.asset('lib/images/logo.png'),
+    );
   }
 
   Widget _emailField() {
@@ -63,7 +73,7 @@ class SignUpScreen extends StatelessWidget {
         primary: Theme.of(context).buttonColor,
       ),
       onPressed: () {},
-      child: Text('SignIn'),
+      child: Text('SignUp'),
     );
   }
 }

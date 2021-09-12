@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_views_flutter/intro_views_flutter.dart';
 
-import 'chat_screen.dart';
-
 class IntroductionScreen extends StatelessWidget {
   final pages = [
     PageViewModel(
@@ -26,15 +24,21 @@ class IntroductionScreen extends StatelessWidget {
         )),
   ];
   Widget build(BuildContext context) {
-    return Builder(builder: (context) => _introScreen());
+    return Builder(builder: (context) => _introScreen(context));
   }
 
-  Widget _introScreen() {
+  Widget _introScreen(BuildContext context) {
     return IntroViewsFlutter(
       pages,
       showBackButton: true,
       showNextButton: true,
       showSkipButton: true,
+      onTapDoneButton: () {
+        Navigator.pushNamed(context, '/SignUp');
+      },
+      onTapSkipButton: () {
+        Navigator.pushNamed(context, '/SignUp');
+      },
     );
   }
 }
