@@ -1,27 +1,35 @@
 import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 
 class LogInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _emailField(),
-          SizedBox(height: 10),
-          _passwordField(),
-          SizedBox(height: 10),
-          _signUpButton(context)
-        ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Container(
+          margin: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _logoImage(),
+              SizedBox(height: 10),
+              _emailField(),
+              SizedBox(height: 10),
+              _passwordField(),
+              SizedBox(height: 10),
+              _signUpButton(context)
+            ],
+          ),
+        ),
       ),
     );
   }
 
   Widget _logoImage() {
-    // return Image.asset();
+    return Container(
+      child: Image.asset('lib/images/logo.png'),
+    );
   }
 
   Widget _emailField() {
