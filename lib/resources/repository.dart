@@ -1,5 +1,11 @@
-class Repository {}
+import 'chat_db_provider.dart';
+import 'chat_firebase_provider.dart';
+import '../models/user.dart';
 
-abstract class FirebaseSource {}
+class Repository {
+  final usr = FirebaseProvider();
 
-abstract class LocalSource {}
+  Future<UserModel> addUser(UserModel user) async {
+    usr.addUser(user);
+  }
+}
