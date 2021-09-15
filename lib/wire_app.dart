@@ -6,9 +6,7 @@ import './screens/log_in_screen.dart';
 import './screens/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class MyApp extends StatelessWidget {
-  FirebaseAuth auth = FirebaseAuth.instance;
-  final Future<FirebaseApp> _initailization = Firebase.initializeApp();
+class WireApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -28,7 +26,7 @@ class MyApp extends StatelessWidget {
           // else LogInscreen or GhatScreen
           body: IntroductionScreen()
           // SignUpScreen()
-          //  Navigationbar()
+          // Navigationbar()
           // LogInScreen(),
           ,
         ),
