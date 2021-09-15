@@ -3,8 +3,10 @@ import 'widgets/navigation_bar.dart';
 import './screens/introduction_screen.dart';
 import './screens/log_in_screen.dart';
 import './screens/sign_up_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class MyApp extends StatelessWidget {
+  FirebaseAuth auth = FirebaseAuth.instance;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

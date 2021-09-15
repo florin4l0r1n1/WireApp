@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/user.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 final _firebaseSource = 'https://wireapp-ed879-default-rtdb.firebaseio.com/';
 
