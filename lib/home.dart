@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'widgets/navigation_bar.dart';
 import './screens/introduction_screen.dart';
@@ -7,6 +8,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class MyApp extends StatelessWidget {
   FirebaseAuth auth = FirebaseAuth.instance;
+  final Future<FirebaseApp> _initailization = Firebase.initializeApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

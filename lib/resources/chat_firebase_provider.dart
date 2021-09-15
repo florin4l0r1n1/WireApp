@@ -33,5 +33,22 @@ class FirebaseProvider {
         }));
   }
 
+  Future _registerWithEmailAndPassword(String email, String password) async {
+    try {
+      UserCredential userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+
+    } on FirebaseAuthException catch (err) {
+
+        if (err.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (err.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    }catch(e){
+
+    }
+  }
+
   addUserData() {}
 }
