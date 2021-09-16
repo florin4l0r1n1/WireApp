@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'widgets/navigation_bar.dart';
 import './screens/introduction_screen.dart';
@@ -5,8 +6,9 @@ import './screens/log_in_screen.dart';
 import './screens/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class MyApp extends StatelessWidget {
-  FirebaseAuth auth = FirebaseAuth.instance;
+class WireApp extends StatelessWidget {
+  final FirebaseAuth auth = FirebaseAuth.instance;
+  final Future<FirebaseApp> _initailization = Firebase.initializeApp();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,11 +26,28 @@ class MyApp extends StatelessWidget {
         home: Scaffold(
           // if user == null introduction screen and signUp
           // else LogInscreen or GhatScreen
-          body: IntroductionScreen()
-          // SignUpScreen()
-          //  Navigationbar()
-          // LogInScreen(),
-          ,
+          body: FutureBuilder(
+              future: _initailization,
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Text('something whent wrong with firebase');
+                }
+                // Once complete, show your application
+                if (snapshot.connectionState == ConnectionState.done) {
+                  return
+
+                      // Navigationbar();
+                      IntroductionScreen();
+                  // SignUpScreen()
+
+                  // LogInScreen(),
+                }
+                return Scaffold(
+                  body: Container(
+                    child: Text('err'),
+                  ),
+                );
+              }),
         ),
         // isNewUser ? Navigationbar() : IntroductionScreen()
 
