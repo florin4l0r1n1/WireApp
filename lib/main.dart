@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import './widgets/init_app.dart';
+import 'wire_app.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(InitializeApp());
+  await Firebase.initializeApp();
+  runApp(WireApp());
 }
