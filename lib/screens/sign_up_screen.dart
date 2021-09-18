@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../bloc/auth_provider.dart';
-import '../bloc/auth_bloc.dart';
+import '../bloc/auth/auth_bloc.dart';
 
 class SignUpScreen extends StatelessWidget {
+  String err2;
   Widget build(BuildContext context) {
     final bloc = AuthBloc();
     return Scaffold(
@@ -56,27 +56,26 @@ class SignUpScreen extends StatelessWidget {
 
   Widget _passwordField1(AuthBloc bloc) {
     return StreamBuilder(
-        stream: bloc.password,
+        stream: bloc.password1,
         builder: (context, snapshot) {
           return TextFormField(
-            onChanged: bloc.changePassword,
-            obscureText: true,
-            decoration: InputDecoration(
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-                hintText: 'set password',
-                labelText: 'set password',
-                errorText: snapshot.error),
-          );
+              onChanged: bloc.changePassword1,
+              obscureText: true,
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  hintText: 'set password',
+                  labelText: 'set password',
+                  errorText: snapshot.error));
         });
   }
 
   Widget _passwordField2(AuthBloc bloc) {
     return StreamBuilder(
-        stream: bloc.password,
+        stream: bloc.submitValid,
         builder: (context, snapshot) {
           return TextFormField(
-            onChanged: bloc.changePassword,
+            onChanged: bloc.changePassword2,
             obscureText: true,
             decoration: InputDecoration(
                 border:
@@ -93,14 +92,14 @@ class SignUpScreen extends StatelessWidget {
         stream: bloc.submitValid,
         builder: (context, snapshot) {
           return ElevatedButton(
+            child: Icon(Icons.app_registration_rounded),
             style: ElevatedButton.styleFrom(
               minimumSize: const Size(200, 50),
               padding: EdgeInsets.all(10),
               elevation: 15,
               primary: Theme.of(context).buttonColor,
             ),
-            onPressed: snapshot.hasData ? bloc.submit : null,
-            child: Text('SignUp'),
+            onPressed: snapshot.hasData ? bloc.registerUser : null,
           );
         });
   }
