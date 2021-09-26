@@ -37,10 +37,10 @@ class WireApp extends StatelessWidget {
                   return
 
                       // Navigationbar();
-                      IntroductionScreen();
-                  // SignUpScreen()
+                      // IntroductionScreen();
+                      SignUpScreen();
 
-                  // LogInScreen(),
+                  // LogInScreen();
                 }
                 return Scaffold(
                   body: Container(

@@ -5,8 +5,21 @@ import 'chat_firebase_provider.dart';
 class Repository {
   final firebaseProvider = FirebaseProvider();
   UserCredential userCredential;
+  User user;
 
-  Future<String> registerUser(String email, String password) {
-    firebaseProvider.registerWithEmailAndPassword(email, password);
+  Future<User> registerUser(String email, String password) async {
+    await firebaseProvider.registerWithEmailAndPassword(email, password);
+
+    return user;
+  }
+
+  Future<User> logIn(String email, String password) async {
+    await firebaseProvider.logIn(email, password);
+
+    return user;
+  }
+
+  Future logOut() async {
+    await firebaseProvider.logOut();
   }
 }

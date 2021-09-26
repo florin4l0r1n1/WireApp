@@ -34,6 +34,16 @@ class AuthBloc with Validators {
     print('Valid password is $validPassword2');
   }
 
+  logIn() {
+    final validEmail = _email.value;
+    final validPassword1 = _password1.value;
+    _reppsitory.logIn(validEmail, validPassword1);
+  }
+
+  logOut() {
+    _reppsitory.logOut();
+  }
+
   dispose() {
     _email.close();
     _email.close();
