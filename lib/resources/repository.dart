@@ -22,4 +22,12 @@ class Repository {
   Future logOut() async {
     await firebaseProvider.logOut();
   }
+
+  Future currentUser() async {
+    firebaseProvider.currentUser();
+  }
+
+  Future isSignedIn() async {
+    firebaseProvider.isSignedIn();
+  }
 }
