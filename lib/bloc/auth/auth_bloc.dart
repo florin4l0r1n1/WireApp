@@ -44,6 +44,14 @@ class AuthBloc with Validators {
     _reppsitory.logOut();
   }
 
+  userID() {
+    _reppsitory.currentUser();
+  }
+
+  isSignedIn() {
+    _reppsitory.isSignedIn();
+  }
+
   dispose() {
     _email.close();
     _email.close();

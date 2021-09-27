@@ -1,16 +1,14 @@
-// import 'dart:convert';
-// import 'package:http/http.dart' as http;
-// import '../models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirebaseProvider {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   String error;
   User user;
-  Future<User> registerWithEmailAndPassword(
+  UserCredential userCredential;
+  Future<String> registerWithEmailAndPassword(
       String email, String password) async {
     try {
-      UserCredential userCredential = await FirebaseAuth.instance
+      userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       user = userCredential.user;
     } on FirebaseAuthException catch (err) {
@@ -23,20 +21,31 @@ class FirebaseProvider {
       error = e.toString();
     }
 
-    return user;
+    return error;
   }
 
-  Future<User> logIn(String email, String password) async {
+  Future<UserCredential> logIn(String email, String password) async {
     try {
-      UserCredential authResult = await firebaseAuth.signInWithEmailAndPassword(
+      userCredential = await firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      user = authResult.user;
+      user = userCredential.user;
     } catch (err) {}
 
-    return user;
+    return userCredential;
   }
 
   Future logOut() async {
     await firebaseAuth.signOut();
+  }
+
+  Future<String> currentUser() async {
+    user = firebaseAuth.currentUser;
+
+    return user.uid;
+  }
+
+  Future<bool> isSignedIn() async {
+    final currentUser = firebaseAuth.currentUser;
+    return currentUser != null;
   }
 }
