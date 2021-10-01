@@ -20,23 +20,34 @@ class LogInScreen extends StatelessWidget {
   }
 
   Widget _logInForm(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: SingleChildScrollView(
-        child: Container(
-          margin: EdgeInsets.all(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _logoImage(),
-              SizedBox(height: 10),
-              _emailField(),
-              SizedBox(height: 10),
-              _passwordField(),
-              SizedBox(height: 10),
-              _signUpButton(context)
-            ],
+    return BlocListener<LoginBloc, LoginState>(
+      listener: (context, state) {
+        final formStatus = state.formSubmissionStatus;
+
+        if (formStatus is SubmissionFailed) {
+          Container(
+            child: Text('SubmissionStatus failed'),
+          );
+        }
+      },
+      child: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Container(
+            margin: EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _logoImage(),
+                SizedBox(height: 10),
+                _emailField(),
+                SizedBox(height: 10),
+                _passwordField(),
+                SizedBox(height: 10),
+                _signUpButton(context)
+              ],
+            ),
           ),
         ),
       ),
