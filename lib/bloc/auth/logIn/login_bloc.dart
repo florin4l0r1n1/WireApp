@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
-import 'package:wire_app/bloc/auth/form_submission_status.dart';
-import 'package:wire_app/bloc/auth/login_event.dart';
-import 'package:wire_app/bloc/auth/login_state.dart';
+import 'package:wire_app/helper/form_submission_status.dart';
+import 'package:wire_app/bloc/auth/logIn/login_event.dart';
+import 'package:wire_app/bloc/auth/logIn/login_state.dart';
 import 'auth_repository.dart';
 
 class LoginBloc extends Bloc<LogInEvent, LoginState> {

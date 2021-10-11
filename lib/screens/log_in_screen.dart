@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wire_app/bloc/auth/auth_repository.dart';
-import 'package:wire_app/bloc/auth/form_submission_status.dart';
-import 'package:wire_app/bloc/auth/login_bloc.dart';
-import 'package:wire_app/bloc/auth/login_event.dart';
-import 'package:wire_app/bloc/auth/login_state.dart';
+import 'package:wire_app/bloc/auth/logIn/auth_repository.dart';
+import 'package:wire_app/helper/form_submission_status.dart';
+import 'package:wire_app/bloc/auth/logIn/login_bloc.dart';
+import 'package:wire_app/bloc/auth/logIn/login_event.dart';
+import 'package:wire_app/bloc/auth/logIn/login_state.dart';
 
 class LogInScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
