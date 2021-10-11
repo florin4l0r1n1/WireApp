@@ -8,7 +8,7 @@ import './screens/log_in_screen.dart';
 import './screens/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'bloc/auth/auth_bloc.dart';
-import './bloc/auth/auth_repository.dart';
+import 'bloc/auth/logIn/auth_repository.dart';
 
 class WireApp extends StatelessWidget {
   final FirebaseAuth auth = FirebaseAuth.instance;

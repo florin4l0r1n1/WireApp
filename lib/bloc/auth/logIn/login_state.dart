@@ -1,4 +1,4 @@
-import 'package:wire_app/bloc/auth/form_submission_status.dart';
+import 'package:wire_app/helper/form_submission_status.dart';
 
 class LoginState {
   final String email;
