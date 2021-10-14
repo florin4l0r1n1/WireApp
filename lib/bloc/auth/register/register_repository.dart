@@ -1,4 +1,4 @@
-class RegisteRepository {
+class RegisterRepository {
   Future<void> register() async {
     print('atemmpting register');
 

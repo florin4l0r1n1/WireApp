@@ -1,13 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'widgets/navigation_bar.dart';
 import './screens/introduction_screen.dart';
 import './screens/log_in_screen.dart';
 import './screens/sign_up_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'bloc/auth/auth_bloc.dart';
 import 'bloc/auth/logIn/auth_repository.dart';
 
 class WireApp extends StatelessWidget {

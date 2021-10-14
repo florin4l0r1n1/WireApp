@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
-import '../bloc/auth/auth_bloc.dart';
 
 class SignUpScreen extends StatelessWidget {
-  String err2;
+  final _formKey = GlobalKey<FormFieldState>();
   Widget build(BuildContext context) {
-    final bloc = AuthBloc();
-    return Scaffold(
-      body: Form(
-        child: SingleChildScrollView(
-          child: Container(
-            margin: EdgeInsets.all(20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                _logoImage(),
-                SizedBox(height: 10),
-                _emailField(),
-                SizedBox(height: 10),
-                _passwordField1(),
-                SizedBox(height: 10),
-                _passwordField2(),
-                SizedBox(height: 10),
-                _signUpButton(context, bloc)
-              ],
-            ),
+    return Scaffold(body: registerForm(context));
+  }
+
+//de impolementat validarea bi noua structura BloC
+  Widget registerForm(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _logoImage(),
+              SizedBox(height: 10),
+              _emailField(),
+              SizedBox(height: 10),
+              _passwordField1(),
+              SizedBox(height: 10),
+              _passwordField2(),
+              SizedBox(height: 10),
+              _signUpButton(context)
+            ],
           ),
         ),
       ),
@@ -73,7 +75,9 @@ class SignUpScreen extends StatelessWidget {
         validator: (value) => null);
   }
 
-  Widget _signUpButton(BuildContext context, AuthBloc bloc) {
+  Widget _signUpButton(
+    BuildContext context,
+  ) {
     return ElevatedButton(
       child: Icon(Icons.app_registration_rounded),
       style: ElevatedButton.styleFrom(
