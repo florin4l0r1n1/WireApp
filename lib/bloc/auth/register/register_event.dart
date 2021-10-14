@@ -11,4 +11,4 @@ class RegisterPasswordChanged extends RegisterEvent {
   RegisterPasswordChanged({this.password});
 }
 
-class RegisterSubmittter extends RegisterEvent {}
+class RegisterSubmitted extends RegisterEvent {}
