@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wire_app/bloc/auth/register/register_bloc.dart';
+import 'package:wire_app/helper/form_submission_status.dart';
+import '../bloc/auth/register/register_bloc.dart';
+import '../bloc/auth/register/register_event.dart';
+import '../bloc/auth/register/register_state.dart';
 
 class SignUpScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormFieldState>();
@@ -42,26 +48,38 @@ class SignUpScreen extends StatelessWidget {
   }
 
   Widget _emailField() {
-    return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
-        labelText: 'email Address',
-        hintText: 'name@example.com',
-      ),
-      validator: (value) => null,
-    );
+    return BlocBuilder<RegisterBloc, RegisterState>(builder: (context, state) {
+      return TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+          labelText: 'email Address',
+          hintText: 'name@example.com',
+        ),
+        validator: (value) => state.isValidEmail ? null : "Email i not valid",
+        onChanged: (value) => context
+            .read<RegisterBloc>()
+            .add(RegisterEmailChanged(email: value)),
+      );
+    });
   }
 
   Widget _passwordField1() {
-    return TextFormField(
+    return BlocBuilder<RegisterBloc, RegisterState>(builder: (context, state) {
+      return TextFormField(
         obscureText: true,
         decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           hintText: 'set password',
           labelText: 'set password',
         ),
-        validator: (value) => null);
+        validator: (value) =>
+            state.isValidPassword ? null : "Password is npt valid",
+        onChanged: (value) => context.read<RegisterBloc>().add(
+              RegisterPasswordChanged(password: value),
+            ),
+      );
+    });
   }
 
   Widget _passwordField2() {
@@ -78,15 +96,23 @@ class SignUpScreen extends StatelessWidget {
   Widget _signUpButton(
     BuildContext context,
   ) {
-    return ElevatedButton(
-      child: Icon(Icons.app_registration_rounded),
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size(200, 50),
-        padding: EdgeInsets.all(10),
-        elevation: 15,
-        primary: Theme.of(context).buttonColor,
-      ),
-      onPressed: () {},
-    );
+    return BlocBuilder<RegisterBloc, RegisterState>(builder: (context, state) {
+      return state.formSubmissionStatus is FormSubmitting
+          ? CircularProgressIndicator()
+          : ElevatedButton(
+              child: Icon(Icons.app_registration_rounded),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(200, 50),
+                padding: EdgeInsets.all(10),
+                elevation: 15,
+                primary: Theme.of(context).buttonColor,
+              ),
+              onPressed: () {
+                if (_formKey.currentState.validate()) {
+                  context.read<RegisterBloc>().add(RegisterSubmitted());
+                }
+              },
+            );
+    });
   }
 }
